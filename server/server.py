@@ -25,8 +25,9 @@ def create():
         e.g. json={'id': '1', 'title': 'Write a blog post'}
     """
     try:
+        data = {'name': 'Michael', 'temperature': 70, 'fan_speed': '2'}
         # id = request.json['id']
-        users_ref.add(request.json)
+        users_ref.add(jsonify(data))
         return jsonify({"success": True}), 200
     except Exception as e:
         return f"An Error Occurred: {e}"
@@ -48,6 +49,16 @@ def read():
         else:
             all_users = [doc.to_dict() for doc in users_ref.stream()]
             return jsonify(all_users), 200
+    except Exception as e:
+        return f"An Error Occurred: {e}"
+
+
+@app.route('/list_ids', methods=['GET'])
+def list_ids():
+    try:
+        data = users_ref.get()
+        all_users = [{doc.id: doc.to_dict()} for doc in data]
+        return jsonify(all_users), 200
     except Exception as e:
         return f"An Error Occurred: {e}"
 
