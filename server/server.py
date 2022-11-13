@@ -1,6 +1,9 @@
 # Required imports
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, Response, render_template
 from firebase_admin import credentials, firestore, initialize_app
+from camera import VideoCamera
+import cv2
+import json
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -10,6 +13,26 @@ cred = credentials.Certificate('key.json')
 default_app = initialize_app(cred)
 db = firestore.client()
 users_ref = db.collection('users')
+ai_ref = db.collection('learning')
+
+
+@app.route('/')
+def index():
+    # face_detector.ai()
+    return render_template('index.js')
+
+
+def gen(camera):
+    while True:
+        frame = camera.get_frame()
+        yield (b'--frame\r\n'
+               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(gen(VideoCamera()),
+                    mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 @app.route('/test')
@@ -19,16 +42,22 @@ def test():
 
 @app.route('/add', methods=['POST'])
 def create():
-    """
-        create() : Add document to Firestore collection with request body.
-        Ensure you pass a custom ID as part of json body in post request,
-        e.g. json={'id': '1', 'title': 'Write a blog post'}
-    """
     try:
-        data = {'name': 'Michael', 'temperature': 70, 'fan_speed': '2'}
+        users_ref.add(request.get_json())
         # id = request.json['id']
         users_ref.add(jsonify(data))
+        users_ref.add(jsonify(data))
         return jsonify({"success": True}), 200
+    except Exception as e:
+        return f"An Error Occurred: {e}"
+
+
+@app.route('/getallai', methods=['GET'])
+def getallai():
+    try:
+        all_ai = [doc.to_dict() for doc in ai_ref.stream()][0]
+        ai_json = json.loads(all_ai)
+        return jsonify(all_ai), 200
     except Exception as e:
         return f"An Error Occurred: {e}"
 
