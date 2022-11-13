@@ -12,7 +12,7 @@ function App() {
         <Camera />
         <Sliders />
       </div> */}
-      <Sliders />
+      <Navbar />
     </div>
   );
 }
