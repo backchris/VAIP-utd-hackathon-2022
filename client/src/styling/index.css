@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
 
 :root {
+<<<<<<< HEAD
   height: 100%;
+=======
+>>>>>>> 4622034f45c9798b2e0810565e63a4aaca4cef77
   --font-family: "Avenir", sans-serif;
 
   --gradient-text: linear-gradient(89.97deg, #ae67fa 1.84%, #f49867 102.67%);
@@ -13,6 +16,7 @@
   --color-text: #81afdd;
   --color-subtext: #ff8a71;
 }
+<<<<<<< HEAD
 
 #root,
 body,
@@ -20,3 +24,5 @@ index,
 html {
   height: 100vh;
 }
+=======
+>>>>>>> 4622034f45c9798b2e0810565e63a4aaca4cef77
