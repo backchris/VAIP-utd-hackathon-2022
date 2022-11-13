@@ -43,13 +43,10 @@ def test():
 @app.route('/add', methods=['POST'])
 def create():
     try:
-<<<<<<< HEAD
         users_ref.add(request.get_json())
-=======
-        data = {'name': 'Michael', 'temperature': 70, 'fan_speed': '2'}
         # id = request.json['id']
         users_ref.add(jsonify(data))
->>>>>>> 4622034f45c9798b2e0810565e63a4aaca4cef77
+        users_ref.add(jsonify(data))
         return jsonify({"success": True}), 200
     except Exception as e:
         return f"An Error Occurred: {e}"

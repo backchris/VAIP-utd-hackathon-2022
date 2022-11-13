@@ -12,12 +12,8 @@ function App() {
         <Camera />
         <Sliders />
       </div> */}
-<<<<<<< HEAD
       <Camera className="Camera" />
       <Sliders className="Sliders" />
-=======
-      <Navbar />
->>>>>>> 4622034f45c9798b2e0810565e63a4aaca4cef77
     </div>
   );
 }
