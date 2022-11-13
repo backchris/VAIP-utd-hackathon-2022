@@ -4,7 +4,6 @@ from firebase_admin import credentials, firestore, initialize_app
 from camera import VideoCamera
 import cv2
 import json
-import face_detector
 
 # Initialize Flask app
 app = Flask(__name__)

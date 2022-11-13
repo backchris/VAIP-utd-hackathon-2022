@@ -21,7 +21,7 @@ mtcnn = MTCNN(image_size=240, margin=0, keep_all=True,
               min_face_size=40)  # keep_all=True
 resnet = InceptionResnetV1(pretrained='vggface2').eval()
 
-f = open("./face_detection/file.txt")  # pull from DB instead of file
+f = open("file.txt")  # pull from DB instead of file
 load_data = json.load(f)
 
 for n in load_data:
