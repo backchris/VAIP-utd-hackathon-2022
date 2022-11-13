@@ -1,0 +1,11 @@
+.Camera {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.camera-box {
+  background: red;
+  outline: 5px solid green;
+  justify-content: center;
+}

@@ -12,6 +12,11 @@ db = firestore.client()
 users_ref = db.collection('users')
 
 
+@app.route('/test')
+def test():
+    return {"test": "test"}
+
+
 @app.route('/add', methods=['POST'])
 def create():
     """

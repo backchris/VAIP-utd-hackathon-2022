@@ -1,0 +1,12 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Main {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  justify-content: center;
+}
