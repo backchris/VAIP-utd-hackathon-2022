@@ -1,27 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styling/Camera.css";
 
 function Camera() {
+  const [name, setName] = useState("friend");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setName(e.target.value);
+  };
+
+  const handleTrain = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="Camera">
-      <div className="camera-box">Hi</div>
+      <img src="http://localhost:5000/video_feed" alt="Video" />
       <div>
-        <form id="form-add" onSubmit={(e) => hello(e)}>
-          <label htmlFor="name-input">Name: </label>
-          <input name="name" id="name-input"></input>
-
-          <label htmlFor="temperature-input">Temperature: </label>
-          <input
-            name="temperature"
-            id="temperature-input"
-            type="number"
-          ></input>
-
-          <label htmlFor="fan-input">Fan Speed: </label>
-          <input name="fan" id="fan-input" type="number"></input>
-
-          <button></button>
+        Hi, {name}!
+        <form onSubmit={handleSubmit}>
+          <input value={name}></input>
+          <button>Submit name</button>
         </form>
+        <button onClick={handleTrain}>Train AI</button>
       </div>
     </div>
   );

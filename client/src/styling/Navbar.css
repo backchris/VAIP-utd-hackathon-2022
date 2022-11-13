@@ -1,0 +1,47 @@
+.caip__navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem 2rem;
+}
+.caip__navbar-links {
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.caip__navbar-links_logo {
+  margin-right: 2rem;
+}
+
+.caip__navbar-links_logo img {
+  border-radius: 13%;
+  width: 60.56px;
+  height: 60.02px;
+}
+
+.caip__navbar-links_container {
+  display: flex;
+  flex-direction: row;
+}
+.caip__navbar-sign {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.caip__navbar-links_container p,
+.caip__navbar-sign p,
+.caip__navbar-menu_container p {
+  color: #fff;
+  font-family: var(--font-family);
+  text-indent: 1100px;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18;
+  line-height: 25px;
+
+  margin: 0 1rem;
+  cursor: pointer;
+}

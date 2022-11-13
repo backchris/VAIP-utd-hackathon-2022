@@ -23,6 +23,12 @@ function Sliders() {
     else if (e.target.id === "fader") setFan(parseInt(value));
   };
 
+  const changeValue = (e) => {
+    e.preventDefault();
+
+    setTemperature(65);
+  };
+
   return (
     <div className="Sliders">
       <div className="tempslider-container">
