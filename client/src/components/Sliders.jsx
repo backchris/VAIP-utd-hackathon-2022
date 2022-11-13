@@ -7,54 +7,53 @@ function Sliders() {
     output.innerHTML = this.value;
   };
 
-  const [range, setRange] = useState(60);
+  const [temperature, setTemperature] = useState(60);
+  const [fan, setFan] = useState(1);
 
   const onSlide = (e) => {
     const value =
-      ((e.target.value - e.target.min) / (e.target.max - e.target.min)) * 100 +
+      ((e.target.value - e.target.min) / (e.target.max - e.target.min)) *
+        (e.target.max - e.target.min) +
       parseInt(e.target.min);
     console.log(
       (e.target.value - e.target.min) / (e.target.max - e.target.min)
     );
-    setRange(parseInt(value));
+
+    if (e.target.id === "myRange") setTemperature(parseInt(value));
+    else if (e.target.id === "fader") setFan(parseInt(value));
   };
 
   return (
-    <div>
+    <div className="Sliders">
       <div className="tempslider-container">
         <h1>Temperature</h1>
         <div className="value-container">
-          <span id="demo">{range} Fahrenheit</span>
+          <span id="demo">{temperature} Fahrenheit</span>
         </div>
         <input
           type="range"
           min="60"
           max="80"
-          value={range}
+          value={temperature}
           className="tempslider"
           id="myRange"
           onChange={onSlide}
         />
       </div>
       <div className="speed-container">
+        <h1>Fan Speed</h1>
+        <div className="value-container">
+          <span id="demo">Power Level: {fan}</span>
+        </div>
         <input
           type="range"
-          min="0"
+          min="1"
           max="5"
-          value="0"
+          value={fan}
           className="speedslider"
           id="fader"
-          step="1"
-          list="fanspeed"
+          onChange={onSlide}
         />
-        <datalist id="fanspeed">
-          <option>0</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </datalist>
       </div>
       <div>
         <label className="switch">

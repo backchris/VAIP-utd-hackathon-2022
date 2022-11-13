@@ -6,6 +6,7 @@ body {
   background-color: #000000d0;
   background-image: url(space2.jpg);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
