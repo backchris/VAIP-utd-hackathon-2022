@@ -1,6 +1,6 @@
 # hack-utd-2022
 
-“Vehicular Artificial Intelligence Presets (VAIP)” for the Toyota Driver Experiennce Challenge
+“Vehicular Artificial Intelligence Presets (VAIP)” for the Toyota Driver Experience Challenge
 
 This is our submission for the 2022 Fall Hackathon at the University of Texas at Dallas. This is a full-stack webapp that uses deep-learning neural network to identify a driver's face, log the user in based on the classified face from a linked Firebase database of users, and apply driver presets based on the user's preferences. 
 
